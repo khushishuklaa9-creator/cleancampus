@@ -1,0 +1,1108 @@
+#:kivy 2.0
+#:import dp kivy.metrics.dp
+
+<LoginScreen>:
+    MDScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            md_bg_color: 1, 1, 1, 1
+            padding: dp(24)
+            spacing: dp(14)
+            Widget:
+                size_hint_y: None
+                height: dp(50)
+            MDIcon:
+                icon: "leaf"
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.55, 0.25, 1
+                font_size: dp(64)
+                size_hint_y: None
+                height: dp(80)
+            MDLabel:
+                text: "CleanCampus"
+                halign: "center"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.38, 0.2, 1
+                size_hint_y: None
+                height: dp(40)
+                font_size: dp(26)
+            MDLabel:
+                text: "Username:"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.45, 0.2, 1
+                size_hint_y: None
+                height: dp(28)
+            MDTextField:
+                id: lu
+                mode: "outlined"
+                size_hint_y: None
+                height: dp(56)
+            MDLabel:
+                text: "Password:"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.45, 0.2, 1
+                size_hint_y: None
+                height: dp(28)
+            MDTextField:
+                id: lp
+                mode: "outlined"
+                password: True
+                size_hint_y: None
+                height: dp(56)
+            MDButton:
+                style: "filled"
+                on_release: root.do_login()
+                size_hint_x: 1
+                height: dp(54)
+                md_bg_color: 0.1, 0.55, 0.25, 1
+                MDButtonText:
+                    text: "LOGIN"
+            MDButton:
+                style: "text"
+                on_release: root.go_signup()
+                size_hint_x: 1
+                height: dp(44)
+                MDButtonText:
+                    text: "Don't have an account? Sign Up"
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.55, 0.25, 1
+            Widget:
+                size_hint_y: None
+                height: dp(30)
+
+<SignupScreen>:
+    MDScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            md_bg_color: 1, 1, 1, 1
+            padding: dp(24)
+            spacing: dp(12)
+            Widget:
+                size_hint_y: None
+                height: dp(30)
+            MDLabel:
+                text: "Create New Account"
+                halign: "center"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.38, 0.2, 1
+                size_hint_y: None
+                height: dp(44)
+                font_size: dp(22)
+            MDLabel:
+                text: "Username:"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.45, 0.2, 1
+                size_hint_y: None
+                height: dp(28)
+            MDTextField:
+                id: su
+                mode: "outlined"
+                size_hint_y: None
+                height: dp(56)
+            MDLabel:
+                text: "Password (min 6 characters):"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.45, 0.2, 1
+                size_hint_y: None
+                height: dp(28)
+            MDTextField:
+                id: sp
+                mode: "outlined"
+                password: True
+                size_hint_y: None
+                height: dp(56)
+            MDLabel:
+                text: "Confirm Password:"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.1, 0.45, 0.2, 1
+                size_hint_y: None
+                height: dp(28)
+            MDTextField:
+                id: sc
+                mode: "outlined"
+                password: True
+                size_hint_y: None
+                height: dp(56)
+            MDButton:
+                style: "filled"
+                on_release: root.do_signup()
+                size_hint_x: 1
+                height: dp(54)
+                md_bg_color: 0.1, 0.55, 0.25, 1
+                MDButtonText:
+                    text: "CREATE ACCOUNT"
+            MDButton:
+                style: "text"
+                on_release: root.go_login()
+                size_hint_x: 1
+                height: dp(44)
+                MDButtonText:
+                    text: "Already have an account? Login"
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.55, 0.25, 1
+            Widget:
+                size_hint_y: None
+                height: dp(30)
+
+<HomeScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 0.94, 0.98, 0.94, 1
+        MDTopAppBar:
+            title: "CleanCampus"
+            left_action_items: [["leaf", lambda x: None]]
+            right_action_items: [["account-circle", lambda x: root.go_to("profile")]]
+            md_bg_color: 0.1, 0.38, 0.2, 1
+            specific_text_color: 1, 1, 1, 1
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(14)
+                spacing: dp(12)
+                MDCard:
+                    orientation: "vertical"
+                    padding: dp(16)
+                    size_hint_y: None
+                    height: dp(100)
+                    radius: [dp(20)]
+                    md_bg_color: 0.1, 0.38, 0.2, 1
+                    MDLabel:
+                        id: greeting
+                        text: "Hey Student!"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        size_hint_y: None
+                        height: dp(32)
+                        font_size: dp(20)
+                    MDLabel:
+                        text: "Keep campus clean today!"
+                        theme_text_color: "Custom"
+                        text_color: 0.72, 0.95, 0.78, 1
+                        size_hint_y: None
+                        height: dp(22)
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: dp(26)
+                        MDLabel:
+                            id: pts
+                            text: "0 pts"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 1.0, 0.92, 0.4, 1
+                        MDLabel:
+                            id: badge
+                            text: "Newcomer"
+                            theme_text_color: "Custom"
+                            text_color: 0.8, 1.0, 0.85, 1
+                MDCard:
+                    orientation: "vertical"
+                    padding: dp(12)
+                    size_hint_y: None
+                    height: dp(60)
+                    radius: [dp(14)]
+                    md_bg_color: 1.0, 0.945, 0.788, 1
+                    MDLabel:
+                        text: "Today Challenge:"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.0, 1
+                        size_hint_y: None
+                        height: dp(22)
+                    MDLabel:
+                        id: challenge
+                        text: "Loading..."
+                        theme_text_color: "Custom"
+                        text_color: 0.6, 0.38, 0.02, 1
+                        size_hint_y: None
+                        height: dp(20)
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: dp(128)
+                    spacing: dp(12)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 1.0, 0.839, 0.906, 1
+                        on_release: root.go_to("complaint")
+                        MDIcon:
+                            icon: "alert-circle-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.75, 0.1, 0.38, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Report Issue"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.05, 0.25, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "+10 pts"
+                            theme_text_color: "Custom"
+                            text_color: 0.7, 0.2, 0.42, 1
+                            size_hint_y: None
+                            height: dp(18)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 0.906, 0.847, 1.0, 1
+                        on_release: root.go_to("rewards")
+                        MDIcon:
+                            icon: "star-circle-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.38, 0.1, 0.72, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "My Rewards"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.28, 0.05, 0.55, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Badges"
+                            theme_text_color: "Custom"
+                            text_color: 0.38, 0.15, 0.62, 1
+                            size_hint_y: None
+                            height: dp(18)
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: dp(128)
+                    spacing: dp(12)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 0.812, 0.969, 0.824, 1
+                        on_release: root.go_to("staff")
+                        MDIcon:
+                            icon: "broom"
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.48, 0.22, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Call Staff"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.35, 0.18, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Request cleaning"
+                            theme_text_color: "Custom"
+                            text_color: 0.2, 0.48, 0.26, 1
+                            size_hint_y: None
+                            height: dp(18)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 0.847, 0.941, 1.0, 1
+                        on_release: root.go_to("leaderboard")
+                        MDIcon:
+                            icon: "trophy-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.05, 0.38, 0.68, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Leaderboard"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.05, 0.25, 0.55, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Top students"
+                            theme_text_color: "Custom"
+                            text_color: 0.15, 0.38, 0.62, 1
+                            size_hint_y: None
+                            height: dp(18)
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: dp(128)
+                    spacing: dp(12)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 0.847, 0.941, 1.0, 1
+                        on_release: root.go_to("photo")
+                        MDIcon:
+                            icon: "camera-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.05, 0.38, 0.68, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Photo Upload"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.05, 0.25, 0.55, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "+5 pts"
+                            theme_text_color: "Custom"
+                            text_color: 0.15, 0.38, 0.62, 1
+                            size_hint_y: None
+                            height: dp(18)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 1.0, 0.945, 0.788, 1
+                        on_release: root.go_to("ai")
+                        MDIcon:
+                            icon: "robot-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.62, 0.38, 0.0, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "AI Helper"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.28, 0.0, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Waste guide"
+                            theme_text_color: "Custom"
+                            text_color: 0.55, 0.35, 0.05, 1
+                            size_hint_y: None
+                            height: dp(18)
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: dp(128)
+                    spacing: dp(12)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 0.812, 0.969, 0.824, 1
+                        on_release: root.go_to("map")
+                        MDIcon:
+                            icon: "map-marker-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.48, 0.22, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Campus Map"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.35, 0.18, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Bin locations"
+                            theme_text_color: "Custom"
+                            text_color: 0.2, 0.48, 0.26, 1
+                            size_hint_y: None
+                            height: dp(18)
+                    MDCard:
+                        orientation: "vertical"
+                        padding: dp(12)
+                        radius: [dp(18)]
+                        md_bg_color: 1.0, 0.839, 0.906, 1
+                        on_release: root.go_to("community")
+                        MDIcon:
+                            icon: "account-group-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.72, 0.1, 0.38, 1
+                            font_size: dp(30)
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "Community"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.05, 0.25, 1
+                            size_hint_y: None
+                            height: dp(36)
+                        MDLabel:
+                            text: "+3 pts"
+                            theme_text_color: "Custom"
+                            text_color: 0.58, 0.2, 0.38, 1
+                            size_hint_y: None
+                            height: dp(18)
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
+
+<ComplaintScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.85, 0.2, 0.45, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "Report Complaint"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(20)
+                spacing: dp(10)
+                MDLabel:
+                    text: "Title:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.5, 0.05, 0.25, 1
+                    size_hint_y: None
+                    height: dp(26)
+                MDTextField:
+                    id: title
+                    mode: "outlined"
+                    size_hint_y: None
+                    height: dp(56)
+                MDLabel:
+                    text: "Description:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.5, 0.05, 0.25, 1
+                    size_hint_y: None
+                    height: dp(26)
+                MDTextField:
+                    id: desc
+                    mode: "outlined"
+                    size_hint_y: None
+                    height: dp(56)
+                MDLabel:
+                    text: "Category:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.5, 0.05, 0.25, 1
+                    size_hint_y: None
+                    height: dp(26)
+                MDTextField:
+                    id: cat
+                    mode: "outlined"
+                    size_hint_y: None
+                    height: dp(56)
+                MDLabel:
+                    text: "Location:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.5, 0.05, 0.25, 1
+                    size_hint_y: None
+                    height: dp(26)
+                MDTextField:
+                    id: loc
+                    mode: "outlined"
+                    size_hint_y: None
+                    height: dp(56)
+                MDButton:
+                    style: "filled"
+                    on_release: root.submit()
+                    size_hint_x: 1
+                    height: dp(54)
+                    md_bg_color: 0.85, 0.2, 0.45, 1
+                    MDButtonText:
+                        text: "SUBMIT (+10 pts)"
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
+
+<StaffScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.1, 0.48, 0.22, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "Call Cleaning Staff"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(16)
+                spacing: dp(10)
+                MDLabel:
+                    text: "Tap on staff to select:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.38, 0.18, 1
+                    size_hint_y: None
+                    height: dp(28)
+                MDCard:
+                    size_hint_y: None
+                    height: dp(240)
+                    radius: [dp(14)]
+                    md_bg_color: 1, 1, 1, 1
+                    MDScrollView:
+                        MDList:
+                            id: slist
+                MDLabel:
+                    id: selected
+                    text: "No staff selected"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.45, 0.2, 1
+                    size_hint_y: None
+                    height: dp(28)
+                MDLabel:
+                    text: "Location:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.38, 0.18, 1
+                    size_hint_y: None
+                    height: dp(26)
+                MDTextField:
+                    id: loc
+                    mode: "outlined"
+                    size_hint_y: None
+                    height: dp(56)
+                MDLabel:
+                    text: "What needs cleaning:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.38, 0.18, 1
+                    size_hint_y: None
+                    height: dp(26)
+                MDTextField:
+                    id: desc
+                    mode: "outlined"
+                    size_hint_y: None
+                    height: dp(56)
+                MDButton:
+                    style: "filled"
+                    on_release: root.send()
+                    size_hint_x: 1
+                    height: dp(54)
+                    md_bg_color: 0.1, 0.48, 0.22, 1
+                    MDButtonText:
+                        text: "SEND REQUEST (+5 pts)"
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
+
+<LeaderboardScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.05, 0.38, 0.68, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "Leaderboard"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDScrollView:
+            MDList:
+                id: llist
+
+<RewardsScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.38, 0.1, 0.72, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "My Rewards"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(20)
+                spacing: dp(14)
+                MDCard:
+                    orientation: "vertical"
+                    padding: dp(20)
+                    size_hint_y: None
+                    height: dp(160)
+                    radius: [dp(22)]
+                    md_bg_color: 0.906, 0.847, 1.0, 1
+                    MDLabel:
+                        text: "Total Points:"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.3, 0.1, 0.6, 1
+                        size_hint_y: None
+                        height: dp(26)
+                    MDLabel:
+                        id: pts
+                        text: "0"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.28, 0.05, 0.58, 1
+                        size_hint_y: None
+                        height: dp(56)
+                        font_size: dp(44)
+                    MDLinearProgressIndicator:
+                        id: prog
+                        value: 0
+                    MDLabel:
+                        id: prog_label
+                        text: "Keep going!"
+                        theme_text_color: "Custom"
+                        text_color: 0.38, 0.15, 0.62, 1
+                        size_hint_y: None
+                        height: dp(22)
+                MDCard:
+                    orientation: "horizontal"
+                    padding: dp(16)
+                    size_hint_y: None
+                    height: dp(80)
+                    radius: [dp(18)]
+                    md_bg_color: 0.812, 0.969, 0.824, 1
+                    MDIcon:
+                        icon: "shield-star-outline"
+                        theme_text_color: "Custom"
+                        text_color: 0.1, 0.5, 0.22, 1
+                        font_size: dp(40)
+                        size_hint_x: None
+                        width: dp(48)
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        MDLabel:
+                            id: badge
+                            text: "Newcomer"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.38, 0.18, 1
+                            size_hint_y: None
+                            height: dp(30)
+                        MDLabel:
+                            text: "Current badge level"
+                            theme_text_color: "Custom"
+                            text_color: 0.25, 0.48, 0.28, 1
+                            size_hint_y: None
+                            height: dp(22)
+
+<PhotoScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.05, 0.38, 0.68, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "Photo Upload"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(20)
+                spacing: dp(14)
+                MDLabel:
+                    text: "Upload a photo of the issue:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.05, 0.25, 0.55, 1
+                    size_hint_y: None
+                    height: dp(30)
+                MDButton:
+                    style: "filled"
+                    on_release: root.open_gallery()
+                    size_hint_x: 1
+                    height: dp(54)
+                    md_bg_color: 0.05, 0.35, 0.65, 1
+                    MDButtonText:
+                        text: "Choose from Gallery"
+                MDButton:
+                    style: "filled"
+                    on_release: root.upload()
+                    size_hint_x: 1
+                    height: dp(54)
+                    md_bg_color: 0.05, 0.4, 0.7, 1
+                    MDButtonText:
+                        text: "UPLOAD (+5 pts)"
+
+<AIScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 0.06, 0.08, 0.12, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.05, 0.18, 0.1, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 0.4, 1.0, 0.6, 1
+            MDLabel:
+                text: "AI Waste Helper"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.4, 1.0, 0.6, 1
+                valign: "center"
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(18)
+                spacing: dp(14)
+                MDLabel:
+                    text: "Ask about waste disposal:"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.4, 1.0, 0.55, 1
+                    size_hint_y: None
+                    height: dp(30)
+                MDTextField:
+                    id: q
+                    mode: "outlined"
+                    size_hint_y: None
+                    height: dp(56)
+                MDButton:
+                    style: "filled"
+                    on_release: root.ask()
+                    size_hint_x: 1
+                    height: dp(54)
+                    md_bg_color: 0.0, 0.72, 0.38, 1
+                    MDButtonText:
+                        text: "ASK AI"
+                MDButton:
+                    style: "filled"
+                    on_release: root.tip()
+                    size_hint_x: 1
+                    height: dp(48)
+                    md_bg_color: 0.0, 0.5, 0.65, 1
+                    MDButtonText:
+                        text: "Get Random Eco Tip"
+                MDCard:
+                    orientation: "vertical"
+                    padding: dp(16)
+                    size_hint_y: None
+                    height: dp(160)
+                    radius: [dp(18)]
+                    md_bg_color: 0.05, 0.16, 0.1, 1
+                    MDLabel:
+                        text: "Answer:"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.28, 0.9, 0.48, 1
+                        size_hint_y: None
+                        height: dp(28)
+                    MDLabel:
+                        id: ans
+                        text: "Type a question and tap ASK AI!"
+                        theme_text_color: "Custom"
+                        text_color: 0.62, 0.92, 0.68, 1
+                        size_hint_y: None
+                        height: dp(110)
+
+<MapScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.1, 0.48, 0.22, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "Campus Map"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(16)
+                spacing: dp(12)
+                MDCard:
+                    size_hint_y: None
+                    height: dp(350)
+                    radius: [dp(18)]
+                    md_bg_color: 0.88, 0.94, 0.9, 1
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: dp(10)
+                        AsyncImage:
+                            id: mapimg
+                            source: ""
+                            opacity: 0
+                            allow_stretch: True
+                            keep_ratio: True
+                            size_hint_y: 1
+                        MDLabel:
+                            id: maplabel
+                            text: "Add gwalior_map.png to assets/maps/ folder"
+                            halign: "center"
+                            theme_text_color: "Custom"
+                            text_color: 0.35, 0.55, 0.4, 1
+                            opacity: 0
+                            size_hint_y: None
+                            height: dp(50)
+                MDLabel:
+                    text: "Green bins - every 50m"
+                    theme_text_color: "Custom"
+                    text_color: 0.2, 0.5, 0.25, 1
+                    size_hint_y: None
+                    height: dp(24)
+                MDLabel:
+                    text: "Blue bins - near canteen"
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.3, 0.6, 1
+                    size_hint_y: None
+                    height: dp(24)
+
+<CommunityScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.72, 0.1, 0.38, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "Community Feed"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: dp(16)
+            spacing: dp(10)
+            MDLabel:
+                text: "Write your message:"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 0.5, 0.05, 0.25, 1
+                size_hint_y: None
+                height: dp(26)
+            MDTextField:
+                id: msg
+                mode: "outlined"
+                size_hint_y: None
+                height: dp(56)
+            MDButton:
+                style: "filled"
+                on_release: root.post()
+                size_hint_x: 1
+                size_hint_y: None
+                height: dp(50)
+                md_bg_color: 0.72, 0.1, 0.38, 1
+                MDButtonText:
+                    text: "POST (+3 pts)"
+            MDScrollView:
+                MDList:
+                    id: clist
+
+<ProfileScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 1, 1, 1, 1
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: dp(56)
+            md_bg_color: 0.1, 0.38, 0.2, 1
+            padding: [dp(8), 0, 0, 0]
+            MDButton:
+                style: "text"
+                on_release: root.go_back()
+                size_hint_x: None
+                width: dp(56)
+                MDButtonText:
+                    text: "Back"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+            MDLabel:
+                text: "My Profile"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                valign: "center"
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: dp(24)
+                spacing: dp(16)
+                MDCard:
+                    orientation: "vertical"
+                    padding: dp(20)
+                    size_hint_y: None
+                    height: dp(220)
+                    radius: [dp(22)]
+                    md_bg_color: 0.1, 0.38, 0.2, 1
+                    MDIcon:
+                        icon: "account-circle"
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: 0.8, 1.0, 0.85, 1
+                        font_size: dp(64)
+                        size_hint_y: None
+                        height: dp(72)
+                    MDLabel:
+                        id: uname
+                        text: "Student"
+                        halign: "center"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        size_hint_y: None
+                        height: dp(40)
+                        font_size: dp(22)
+                    MDLabel:
+                        id: badge
+                        text: "Newcomer"
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: 0.72, 0.95, 0.78, 1
+                        size_hint_y: None
+                        height: dp(24)
+                    MDLabel:
+                        id: pts
+                        text: "0 Points"
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: 1.0, 0.92, 0.4, 1
+                        size_hint_y: None
+                        height: dp(24)
+                MDButton:
+                    style: "filled"
+                    on_release: root.logout()
+                    size_hint_x: 1
+                    height: dp(54)
+                    md_bg_color: 0.75, 0.12, 0.18, 1
+                    MDButtonText:
+                        text: "LOGOUT"
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
